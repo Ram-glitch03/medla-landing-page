@@ -5,23 +5,23 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  ArrowRight, 
-  Users, 
-  Award, 
-  ShieldCheck, 
-  Lock, 
-  CheckCircle2, 
-  Building2, 
-  Gavel, 
-  Landmark, 
-  Database, 
-  Languages, 
-  Zap, 
-  HeartHandshake, 
-  Check, 
-  Globe, 
-  Mail, 
+import {
+  ArrowRight,
+  Users,
+  Award,
+  ShieldCheck,
+  Lock,
+  CheckCircle2,
+  Building2,
+  Gavel,
+  Landmark,
+  Database,
+  Languages,
+  Zap,
+  HeartHandshake,
+  Check,
+  Globe,
+  Mail,
   Headphones,
   Menu,
   X,
@@ -51,9 +51,9 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-8">
             {['Soluciones', 'Integración', 'Seguridad', 'Precios'].map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase()}`} 
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
                 className="text-sm font-semibold text-slate-300 hover:text-white transition-colors"
               >
                 {item}
@@ -68,7 +68,7 @@ const Navbar = () => {
             <button className="bg-primary-container text-white px-6 py-2.5 rounded-md font-bold text-sm shadow-lg shadow-primary-container/20 hover:scale-[1.03] active:scale-95 transition-all">
               Empezar Ahora
             </button>
-            <button 
+            <button
               className="md:hidden text-white"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
@@ -79,7 +79,7 @@ const Navbar = () => {
 
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -87,9 +87,9 @@ const Navbar = () => {
             >
               <div className="flex flex-col gap-4 p-6">
                 {['Soluciones', 'Integración', 'Seguridad', 'Precios'].map((item) => (
-                  <a 
-                    key={item} 
-                    href={`#${item.toLowerCase()}`} 
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
                     className="text-lg font-semibold text-white"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -113,11 +113,16 @@ const Hero = () => {
   return (
     <section className="relative pt-24 pb-32 overflow-hidden min-h-screen flex items-center bg-white">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
+          <div className="flex items-center gap-5 mb-8">
+            <img src="/medla-logo.png" alt="Medla Asesores" className="h-16 w-auto object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+            <span className="text-slate-300 font-black text-xl">×</span>
+            <img src="/jotform-logo.png" alt="JotForm" className="h-14 w-auto object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+          </div>
           <span className="inline-block py-1.5 px-4 bg-primary-container/10 text-primary-container text-[11px] font-black tracking-[0.2em] uppercase rounded-full mb-6 border border-primary-container/20">
             Escudo Legal Integrado 🛡️
           </span>
@@ -127,7 +132,7 @@ const Hero = () => {
           <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-xl leading-relaxed font-medium">
             Combina la potencia de <strong>JotForm</strong> con la protección jurídica de <strong>MEDLA</strong>. Transforma visitantes en clientes con formularios 100% legales, diseñados para disparar tu conversión en España.
           </p>
-          
+
           <div className="flex flex-col gap-6">
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#registro" className="bg-gradient-to-r from-primary-container to-teal-medla text-white px-8 py-4 rounded-xl font-black text-lg shadow-2xl shadow-primary-container/30 hover:scale-105 hover:shadow-teal-medla/40 transition-all flex items-center justify-center gap-3">
@@ -137,7 +142,7 @@ const Hero = () => {
                 Ver planes y precios
               </a>
             </div>
-            
+
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[12px] text-slate-500 font-bold">
               <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-teal-medla" /> Onboarding Inmediato</span>
               <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-teal-medla" /> Listo en 5 minutos</span>
@@ -146,7 +151,7 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -191,9 +196,9 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Floating Element 1: Legal Document */}
-          <motion.div 
+          <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -top-10 -right-10 z-20 bg-white p-4 rounded-xl shadow-2xl border border-slate-100 max-w-[200px] rotate-3"
@@ -213,19 +218,19 @@ const Hero = () => {
           </motion.div>
 
           {/* Floating Element 2: Certification Badge */}
-          <motion.div 
+          <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -bottom-12 -left-12 z-20 w-32 h-32 rounded-full bg-navy-medla p-1 shadow-2xl -rotate-6"
           >
             <div className="w-full h-full rounded-full border-2 border-dashed border-white/20 flex flex-col items-center justify-center text-center p-2">
               <ShieldCheck size={32} className="text-primary-container mb-1" />
-              <p className="text-[9px] font-black text-white uppercase leading-tight">RGPD<br/>Compliant</p>
+              <p className="text-[9px] font-black text-white uppercase leading-tight">RGPD<br />Compliant</p>
             </div>
           </motion.div>
 
           {/* Floating Element 3: Stat Card */}
-          <motion.div 
+          <motion.div
             animate={{ x: [0, 5, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-10 -left-16 z-20 bg-white px-4 py-2 rounded-full shadow-xl border border-slate-100 flex items-center gap-2 rotate-2"
@@ -235,7 +240,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Floating Element 4: Data Server Card */}
-          <motion.div 
+          <motion.div
             animate={{ x: [0, -5, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
             className="absolute bottom-10 -right-16 z-20 bg-navy-medla p-4 rounded-xl shadow-2xl border border-white/10 flex items-center gap-3 -rotate-2"
@@ -246,7 +251,7 @@ const Hero = () => {
               <p className="text-[8px] text-slate-400 font-medium">Infraestructura MEDLA × JotForm</p>
             </div>
           </motion.div>
-          
+
         </motion.div>
       </div>
 
@@ -262,7 +267,7 @@ const Hero = () => {
 
 const CountUp = ({ end, suffix = "" }: { end: number, suffix?: string }) => {
   const [count, setCount] = useState(0);
-  
+
   return (
     <motion.span
       initial={{ opacity: 0 }}
@@ -292,7 +297,7 @@ const TrustBar = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-white to-[#F8FAFC] relative z-10 border-y border-slate-100">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -303,7 +308,7 @@ const TrustBar = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -312,8 +317,8 @@ const TrustBar = () => {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl -mr-20 -mt-20 group-hover:bg-primary-container/10 transition-all duration-700" />
             <div className="flex items-center gap-4 mb-10 relative z-10">
-              <div className="w-14 h-14 bg-primary-container rounded-2xl flex items-center justify-center shadow-lg shadow-primary-container/30">
-                <Globe size={28} className="text-white" />
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-lg shadow-primary-container/30 border border-slate-100 overflow-hidden">
+                <img src="/jotform-logo.png" alt="Jotform" className="w-8 h-8 object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary-container"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'; }} />
               </div>
               <div>
                 <h4 className="text-2xl font-black text-navy-medla">Tecnología JotForm</h4>
@@ -335,7 +340,7 @@ const TrustBar = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -344,8 +349,8 @@ const TrustBar = () => {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-teal-medla/10 rounded-full blur-3xl -mr-20 -mt-20 group-hover:bg-teal-medla/20 transition-all duration-700" />
             <div className="flex items-center gap-4 mb-10 relative z-10">
-              <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-md border border-white/10">
-                <Gavel size={28} className="text-teal-medla" />
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-lg shadow-teal-medla/30 overflow-hidden border border-white/20">
+                <img src="/medla-logo.png" alt="Medla" className="w-10 h-10 object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-medla"><path d="m14.5 12.5-8 8a2.119 2.119 0 1 1-3-3l8-8"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></svg>'; }} />
               </div>
               <div>
                 <h4 className="text-2xl font-black text-white">Garantía MEDLA</h4>
@@ -365,7 +370,7 @@ const TrustBar = () => {
                 </div>
               ))}
             </div>
-            
+
             <a href="#registro" className="mt-8 flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-teal-medla text-navy-medla font-black hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-teal-medla/20 relative z-10">
               Empezar tu onboarding <ArrowRight size={18} className="stroke-[3px]" />
             </a>
@@ -381,16 +386,16 @@ const MedlaSpotlight = () => {
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-10 gap-16 items-center">
         {/* Left Side: Photo */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           className="lg:col-span-4 relative"
         >
           <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl aspect-[4/5]">
-            <img 
-              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=800" 
-              alt="MEDLA Legal Team" 
+            <img
+              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=800"
+              alt="MEDLA Legal Team"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
@@ -403,7 +408,7 @@ const MedlaSpotlight = () => {
         </motion.div>
 
         {/* Right Side: Credentials */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -474,7 +479,7 @@ const BentoFeatures = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -486,7 +491,7 @@ const BentoFeatures = () => {
         </motion.div>
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((f, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -511,7 +516,7 @@ const Showcase = () => {
     <section className="py-32 bg-[#0D1B2A] text-white relative overflow-hidden">
       {/* Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full radial-glow opacity-40 pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -527,8 +532,8 @@ const Showcase = () => {
               { title: "Legalidad en Firma Electrónica", desc: "Cumplimiento con las regulaciones eIDAS para firmas digitales en contratos legales españoles." },
               { title: "Almacenamiento en la Nube Fiscal", desc: "Sistemas de respaldo automatizados diseñados para la regla española de retención de registros legales de 5 años." },
             ].map((item, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -547,7 +552,7 @@ const Showcase = () => {
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -557,16 +562,16 @@ const Showcase = () => {
           {/* Laptop Mockup */}
           <div className="relative z-10 bg-slate-800 rounded-xl p-1.5 shadow-2xl border border-white/10">
             <div className="bg-[#0D1B2A] rounded-lg overflow-hidden border border-white/5 aspect-video relative">
-              <img 
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" 
-                alt="JotForm Builder UI" 
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200"
+                alt="JotForm Builder UI"
                 className="w-full h-full object-cover opacity-80"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-transparent to-transparent" />
-              
+
               {/* Floating Feature Chips */}
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
                 className="absolute top-10 left-10 bg-white text-navy-medla px-3 py-1 rounded-full text-[10px] font-black shadow-lg flex items-center gap-1.5"
@@ -574,7 +579,7 @@ const Showcase = () => {
                 <div className="w-1.5 h-1.5 bg-primary-container rounded-full" />
                 AI Agents
               </motion.div>
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, 5, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
                 className="absolute bottom-20 right-10 bg-white text-navy-medla px-3 py-1 rounded-full text-[10px] font-black shadow-lg flex items-center gap-1.5"
@@ -582,7 +587,7 @@ const Showcase = () => {
                 <div className="w-1.5 h-1.5 bg-teal-medla rounded-full" />
                 150+ integraciones
               </motion.div>
-              <motion.div 
+              <motion.div
                 animate={{ x: [0, 5, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity }}
                 className="absolute top-1/2 right-20 bg-white text-navy-medla px-3 py-1 rounded-full text-[10px] font-black shadow-lg flex items-center gap-1.5"
@@ -592,7 +597,7 @@ const Showcase = () => {
               </motion.div>
             </div>
           </div>
-          
+
           {/* Laptop Base */}
           <div className="h-3 w-[105%] bg-slate-700 mx-auto -mt-1 rounded-b-xl relative z-0 shadow-xl" />
           <div className="h-1 w-20 bg-slate-600 mx-auto rounded-b-full" />
@@ -613,7 +618,7 @@ const Pricing = () => {
   return (
     <section className="py-24 px-6 bg-white section-divider" id="precios">
       <div className="max-w-7xl mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -625,8 +630,8 @@ const Pricing = () => {
         </motion.div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {plans.map((p, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -661,7 +666,7 @@ const Pricing = () => {
               <a href="#registro" className={`flex justify-center items-center gap-2 w-full py-3.5 rounded-xl font-black text-sm transition-all hover:scale-[1.03] active:scale-95 ${p.featured ? 'bg-gradient-to-r from-primary-container to-teal-medla text-white shadow-xl shadow-primary-container/30' : p.dark ? 'bg-white text-secondary' : 'border-2 border-primary-container text-primary-container hover:bg-primary-container/5'}`}>
                 {p.button} <ArrowRight size={16} className="stroke-[3px]" />
               </a>
-              
+
               <div className="mt-6 flex items-center justify-center gap-2 opacity-30 grayscale scale-75">
                 <span className="text-[8px] font-black uppercase tracking-tighter">JotForm</span>
                 <div className={`w-px h-3 ${p.dark ? 'bg-white' : 'bg-slate-900'}`}></div>
@@ -680,22 +685,22 @@ const ComplianceSection = () => {
     <section className="bg-navy-medla text-white py-32 relative overflow-hidden">
       {/* Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full radial-glow opacity-30 pointer-events-none" />
-      
+
       <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] pointer-events-none">
         <ShieldCheck size={600} strokeWidth={0.5} />
       </div>
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="font-headline text-4xl md:text-5xl font-extrabold tracking-tight mb-20 leading-tight"
         >
-          JotForm cumple con el RGPD. <br/>
+          JotForm cumple con el RGPD. <br />
           <span className="text-primary-container">MEDLA lo garantiza por contrato.</span>
         </motion.h2>
-        
+
         <div className="grid md:grid-cols-2 gap-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -752,7 +757,7 @@ const ComplianceSection = () => {
           </motion.div>
         </div>
 
-        <motion.a 
+        <motion.a
           href="#registro"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -778,7 +783,7 @@ const Testimonials = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -800,8 +805,8 @@ const Testimonials = () => {
               role: "CEO, E-Gabinete Jurídico"
             }
           ].map((t, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -855,7 +860,7 @@ const ContactForm = () => {
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -903,7 +908,7 @@ const Footer = () => {
             <span className="text-2xl font-extrabold text-white tracking-tighter block mb-6">MEDLA <span className="text-primary-container">×</span> JotForm</span>
             <p className="text-sm leading-relaxed text-slate-400 max-w-xs">Empoderando a las empresas españolas con automatización legal inteligente e infraestructura de datos segura.</p>
           </div>
-          
+
           <div>
             <p className="text-white font-bold mb-6 text-sm uppercase tracking-widest">Colaboración</p>
             <div className="space-y-6">
@@ -936,7 +941,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-white transition-colors">Enterprise</a></li>
             </ul>
           </div>
-          
+
           <div>
             <p className="text-white font-bold mb-6 text-sm uppercase tracking-widest">Legal</p>
             <ul className="space-y-4 text-sm">
@@ -946,7 +951,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-xs text-slate-500">© 2026 MEDLA × JotForm. Todos los derechos reservados.</p>
           <div className="flex items-center gap-2">
