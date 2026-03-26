@@ -121,7 +121,7 @@ const Hero = () => {
           <div className="flex items-center gap-5 mb-8">
             <img src="/medla-logo.png" alt="Medla Asesores" className="h-16 w-auto object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
             <span className="text-slate-300 font-black text-xl">×</span>
-            <img src="/jotform-logo.png" alt="JotForm" className="h-14 w-auto object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+            <img src="https://www.jotform.com/resources/assets/icon/jotform-icon-transparent-500x500.png" alt="JotForm" className="h-14 w-auto object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
           </div>
           <span className="inline-block py-1.5 px-4 bg-primary-container/10 text-primary-container text-[11px] font-black tracking-[0.2em] uppercase rounded-full mb-6 border border-primary-container/20">
             Escudo Legal Integrado 🛡️
