@@ -111,37 +111,37 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative pt-40 pb-32 overflow-hidden min-h-screen flex items-center bg-white">
+    <section className="relative pt-24 pb-32 overflow-hidden min-h-screen flex items-center bg-white">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="inline-block py-1 px-3 bg-primary-container/10 text-primary-container text-[10px] font-bold tracking-widest uppercase rounded mb-6">
-            Jurisprudencia Digital
+          <span className="inline-block py-1.5 px-4 bg-primary-container/10 text-primary-container text-[11px] font-black tracking-[0.2em] uppercase rounded-full mb-6 border border-primary-container/20">
+            Escudo Legal Integrado 🛡️
           </span>
           <h1 className="font-headline text-5xl md:text-7xl font-extrabold tracking-tight text-navy-medla leading-[1.1] mb-8">
-            Crea formularios profesionales que cumplen el <span className="text-primary-container">RGPD.</span> Sin código. Con respaldo legal.
+            Automatiza tu captación sin arriesgarte a <span className="text-primary-container">multas del RGPD.</span>
           </h1>
-          <p className="text-lg md:text-xl text-on-surface-variant mb-10 max-w-lg leading-relaxed">
-            JotForm es la plataforma no-code más usada del mundo. MEDLA garantiza que tu implementación cumple la normativa española.
+          <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-xl leading-relaxed font-medium">
+            Combina la potencia de <strong>JotForm</strong> con la protección jurídica de <strong>MEDLA</strong>. Transforma visitantes en clientes con formularios 100% legales, diseñados para disparar tu conversión en España.
           </p>
           
           <div className="flex flex-col gap-6">
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-primary-container text-white px-8 py-4 rounded-lg font-bold text-lg shadow-xl shadow-primary-container/20 hover:scale-[1.03] transition-all flex items-center justify-center gap-2">
-                Empieza gratis — 0€ para siempre <ArrowRight size={20} />
-              </button>
-              <button className="border-2 border-navy-medla text-navy-medla px-8 py-4 rounded-lg font-bold text-lg hover:bg-navy-medla/5 hover:scale-[1.03] transition-all">
-                Agendar diagnóstico legal gratuito
-              </button>
+              <a href="#registro" className="bg-gradient-to-r from-primary-container to-teal-medla text-white px-8 py-4 rounded-xl font-black text-lg shadow-2xl shadow-primary-container/30 hover:scale-105 hover:shadow-teal-medla/40 transition-all flex items-center justify-center gap-3">
+                Crear cuenta ahora <ArrowRight size={20} className="stroke-[3px]" />
+              </a>
+              <a href="#precios" className="relative overflow-hidden border-2 border-navy-medla text-navy-medla px-8 py-4 rounded-xl font-bold text-lg hover:text-white hover:bg-navy-medla hover:scale-105 transition-all flex justify-center items-center">
+                Ver planes y precios
+              </a>
             </div>
             
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] text-slate-400 font-medium">
-              <span className="flex items-center gap-1.5"><Check size={14} className="text-green-500" /> Sin tarjeta de crédito</span>
-              <span className="flex items-center gap-1.5"><Check size={14} className="text-green-500" /> Configuración en 5 minutos</span>
-              <span className="flex items-center gap-1.5"><Check size={14} className="text-green-500" /> RGPD garantizado por MEDLA</span>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[12px] text-slate-500 font-bold">
+              <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-teal-medla" /> Onboarding Inmediato</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-teal-medla" /> Listo en 5 minutos</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-teal-medla" /> Respaldo Legal MEDLA</span>
             </div>
           </div>
         </motion.div>
@@ -290,75 +290,87 @@ const CountUp = ({ end, suffix = "" }: { end: number, suffix?: string }) => {
 
 const TrustBar = () => {
   return (
-    <section className="py-16 bg-[#F5F5F5] relative z-10">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+    <section className="py-20 bg-gradient-to-b from-white to-[#F8FAFC] relative z-10 border-y border-slate-100">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="space-y-8"
+          className="text-center mb-16"
         >
-          <div className="flex items-center gap-3">
-            <div className="w-1.5 h-6 bg-primary-container rounded-full"></div>
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Credenciales Globales de JotForm</span>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {[
-              { icon: <Users size={14} />, text: <><CountUp end={35} suffix="M+" /> Usuarios en el mundo</> },
-              { icon: <Award size={14} />, text: "#1 EN G2 — FORM BUILDERS" },
-              { icon: <ShieldCheck size={14} />, text: "HIPAA COMPLIANT" },
-              { icon: <Lock size={14} />, text: "SSL 256-BIT" },
-              { icon: <CheckCircle2 size={14} />, text: "SOC 2 TYPE II" },
-            ].map((item, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-slate-100 shadow-sm text-[10px] font-bold text-slate-600"
-              >
-                <span className="text-primary-container">{item.icon}</span>
-                {item.text}
-              </motion.div>
-            ))}
-          </div>
+          <h3 className="text-4xl font-headline font-extrabold text-navy-medla tracking-tight mb-4">Experiencia que blinda tu negocio</h3>
+          <p className="text-slate-500 font-medium text-lg max-w-2xl mx-auto">La infraestructura tecnológica #1 del mundo protegida por la firma legal española de referencia.</p>
         </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="space-y-8"
-        >
-          <div className="flex items-center gap-3">
-            <div className="w-1.5 h-6 bg-secondary rounded-full"></div>
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Experiencia Local de MEDLA</span>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {[
-              { icon: <Building2 size={14} />, text: "FIRMA LEGAL CON SEDE EN MADRID" },
-              { icon: <Gavel size={14} />, text: "ESPECIALISTAS EN RGPD" },
-              { icon: <Landmark size={14} />, text: "COLEGIO DE ABOGADOS DE ESPAÑA" },
-              { icon: <Database size={14} />, text: "SERVIDORES EUROPEOS" },
-              { icon: <Languages size={14} />, text: "ASESORÍA EN ESPAÑOL" },
-            ].map((item, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: (i * 0.1) + 0.3 }}
-                className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-slate-100 shadow-sm text-[10px] font-bold text-slate-600"
-              >
-                <span className="text-secondary">{item.icon}</span>
-                {item.text}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        <div className="grid lg:grid-cols-2 gap-8">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-3xl p-10 shadow-xl shadow-slate-200/50 border border-slate-100 relative overflow-hidden group hover:shadow-2xl hover:shadow-primary-container/10 transition-all"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl -mr-20 -mt-20 group-hover:bg-primary-container/10 transition-all duration-700" />
+            <div className="flex items-center gap-4 mb-10 relative z-10">
+              <div className="w-14 h-14 bg-primary-container rounded-2xl flex items-center justify-center shadow-lg shadow-primary-container/30">
+                <Globe size={28} className="text-white" />
+              </div>
+              <div>
+                <h4 className="text-2xl font-black text-navy-medla">Tecnología JotForm</h4>
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Motor Global</span>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4 relative z-10">
+              {[
+                { icon: <Users size={18} />, text: <><CountUp end={35} suffix="M+" /> Usuarios</> },
+                { icon: <Award size={18} />, text: "#1 en G2" },
+                { icon: <ShieldCheck size={18} />, text: "HIPAA & SOC 2" },
+                { icon: <Lock size={18} />, text: "SSL 256-BIT" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 bg-slate-50 px-4 py-3 rounded-xl border border-slate-100 text-sm font-bold text-slate-600">
+                  <span className="text-primary-container drop-shadow-sm">{item.icon}</span>
+                  {item.text}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-navy-medla rounded-3xl p-10 shadow-2xl relative overflow-hidden group hover:shadow-teal-medla/20 transition-all"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-teal-medla/10 rounded-full blur-3xl -mr-20 -mt-20 group-hover:bg-teal-medla/20 transition-all duration-700" />
+            <div className="flex items-center gap-4 mb-10 relative z-10">
+              <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-md border border-white/10">
+                <Gavel size={28} className="text-teal-medla" />
+              </div>
+              <div>
+                <h4 className="text-2xl font-black text-white">Garantía MEDLA</h4>
+                <span className="text-xs font-bold uppercase tracking-widest text-teal-medla">Defensa Legal Local</span>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4 relative z-10">
+              {[
+                { icon: <Building2 size={18} />, text: "Firma en Madrid" },
+                { icon: <Gavel size={18} />, text: "Expertos RGPD" },
+                { icon: <Landmark size={18} />, text: "Colegiados" },
+                { icon: <Database size={18} />, text: "Servidores 🇪🇺" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 bg-white/5 px-4 py-3 rounded-xl border border-white/5 text-sm font-bold text-white backdrop-blur-sm">
+                  <span className="text-teal-medla">{item.icon}</span>
+                  {item.text}
+                </div>
+              ))}
+            </div>
+            
+            <a href="#registro" className="mt-8 flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-teal-medla text-navy-medla font-black hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-teal-medla/20 relative z-10">
+              Empezar tu onboarding <ArrowRight size={18} className="stroke-[3px]" />
+            </a>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -424,8 +436,8 @@ const MedlaSpotlight = () => {
             "Nuestra misión es que la tecnología no sea un obstáculo legal, sino una ventaja competitiva segura para tu empresa en el mercado europeo."
           </div>
 
-          <a href="#" className="inline-flex items-center gap-2 text-primary-container font-bold hover:gap-4 transition-all group">
-            Conoce al equipo de MEDLA <ArrowRight size={20} />
+          <a href="#registro" className="mt-4 p-4 rounded-xl bg-navy-medla text-white inline-flex items-center justify-center gap-3 font-black text-sm hover:scale-105 hover:bg-opacity-95 transition-all shadow-xl shadow-navy-medla/20">
+            Asegurar mi Empresa <ShieldCheck size={18} />
           </a>
         </motion.div>
       </div>
@@ -646,9 +658,9 @@ const Pricing = () => {
                 <p className={`text-[10px] font-black uppercase tracking-widest mb-2 ${p.featured ? 'text-primary-container' : 'text-slate-400'}`}>Complemento MEDLA</p>
                 <p className={`text-xs font-bold ${p.dark ? 'text-slate-300' : 'text-slate-700'}`}>{p.medla}</p>
               </div>
-              <button className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all hover:scale-[1.03] active:scale-95 ${p.featured ? 'bg-primary-container text-white shadow-lg shadow-primary-container/30' : p.dark ? 'bg-white text-secondary' : 'border-2 border-primary-container text-primary-container hover:bg-primary-container/5'}`}>
-                {p.button}
-              </button>
+              <a href="#registro" className={`flex justify-center items-center gap-2 w-full py-3.5 rounded-xl font-black text-sm transition-all hover:scale-[1.03] active:scale-95 ${p.featured ? 'bg-gradient-to-r from-primary-container to-teal-medla text-white shadow-xl shadow-primary-container/30' : p.dark ? 'bg-white text-secondary' : 'border-2 border-primary-container text-primary-container hover:bg-primary-container/5'}`}>
+                {p.button} <ArrowRight size={16} className="stroke-[3px]" />
+              </a>
               
               <div className="mt-6 flex items-center justify-center gap-2 opacity-30 grayscale scale-75">
                 <span className="text-[8px] font-black uppercase tracking-tighter">JotForm</span>
@@ -740,15 +752,16 @@ const ComplianceSection = () => {
           </motion.div>
         </div>
 
-        <motion.button 
+        <motion.a 
+          href="#registro"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-20 border-2 border-primary-container text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary-container/10 hover:scale-[1.03] active:scale-95 transition-all flex items-center gap-3"
+          className="inline-flex mt-20 border-2 border-primary-container text-white px-10 py-4 rounded-xl font-black text-lg hover:bg-gradient-to-r hover:from-primary-container hover:to-teal-medla hover:border-transparent hover:scale-105 transition-all items-center gap-3"
         >
-          Habla con nuestros abogados <ArrowRight size={20} />
-        </motion.button>
+          Regístrate y Protégete Ahora <Zap size={20} className="fill-white" />
+        </motion.a>
       </div>
     </section>
   );
@@ -816,7 +829,7 @@ const Testimonials = () => {
 
 const ContactForm = () => {
   return (
-    <section className="py-24 bg-white px-6 section-divider">
+    <section id="registro" className="py-24 bg-white px-6 section-divider scroll-mt-20">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-start">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -949,7 +962,6 @@ const Footer = () => {
 export default function App() {
   return (
     <div className="min-h-screen">
-      <Navbar />
       <Hero />
       <TrustBar />
       <MedlaSpotlight />
