@@ -370,12 +370,20 @@ const TrustBar = () => {
                 </div>
               ))}
             </div>
-
-            <a href="#registro" className="mt-8 flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-teal-medla text-navy-medla font-black hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-teal-medla/20 relative z-10">
-              Empezar tu onboarding <ArrowRight size={18} className="stroke-[3px]" />
-            </a>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-12 flex justify-center"
+        >
+          <a href="#registro" className="inline-flex items-center justify-center gap-3 px-12 py-5 rounded-xl bg-gradient-to-r from-primary-container to-teal-medla text-white font-black text-lg hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-primary-container/30 relative z-10">
+            Asegurar infraestructura ahora <ArrowRight size={20} className="stroke-[3px]" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
