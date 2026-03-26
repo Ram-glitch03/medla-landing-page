@@ -111,42 +111,43 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section className="relative pt-24 pb-32 overflow-hidden min-h-screen flex items-center bg-white">
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+    <section className="relative pt-32 lg:pt-40 pb-20 lg:pb-32 overflow-hidden min-h-screen flex items-center bg-white">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center lg:text-left mt-8 lg:mt-0"
         >
-          <div className="flex items-center gap-5 mb-8">
-            <img src="/medla-logo.png" alt="Medla Asesores" className="h-16 w-auto object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+          <div className="flex justify-center lg:justify-start items-center gap-5 mb-6 lg:mb-8">
+            <img src="/medla-logo.png" alt="Medla Asesores" className="h-12 sm:h-16 w-auto object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
             <span className="text-slate-300 font-black text-xl">×</span>
-            <img src="/jotform-logo.png" alt="JotForm" className="h-14 w-auto object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+            <img src="/jotform-logo.png" alt="JotForm" className="h-10 sm:h-14 w-auto object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
           </div>
-          <span className="inline-block py-1.5 px-4 bg-primary-container/10 text-primary-container text-[11px] font-black tracking-[0.2em] uppercase rounded-full mb-6 border border-primary-container/20">
+          <span className="inline-block py-1.5 px-4 bg-primary-container/10 text-primary-container text-[11px] sm:text-xs font-black tracking-[0.2em] uppercase rounded-full mb-4 lg:mb-6 border border-primary-container/20">
             Escudo Legal Integrado 🛡️
           </span>
-          <h1 className="font-headline text-5xl md:text-7xl font-extrabold tracking-tight text-navy-medla leading-[1.1] mb-8">
-            Automatiza tu captación sin arriesgarte a <span className="text-primary-container">multas del RGPD.</span>
+          <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-navy-medla leading-[1.1] mb-6 lg:mb-8">
+            Formularios Potentes. Riesgo Legal <span className="text-primary-container">Cero.</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-xl leading-relaxed font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
             Combina la potencia de <strong>JotForm</strong> con la protección jurídica de <strong>MEDLA</strong>. Transforma visitantes en clientes con formularios 100% legales, diseñados para disparar tu conversión en España.
           </p>
 
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#registro" className="bg-gradient-to-r from-primary-container to-teal-medla text-white px-8 py-4 rounded-xl font-black text-lg shadow-2xl shadow-primary-container/30 hover:scale-105 hover:shadow-teal-medla/40 transition-all flex items-center justify-center gap-3">
-                Crear cuenta ahora <ArrowRight size={20} className="stroke-[3px]" />
+          <div className="flex flex-col gap-6 w-full lg:w-auto items-center lg:items-start">
+            <div className="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
+              <a href="#registro" className="w-full sm:w-auto bg-gradient-to-r from-primary-container to-teal-medla text-white px-6 sm:px-8 py-4 rounded-xl font-black text-base sm:text-lg shadow-2xl shadow-primary-container/30 hover:scale-105 hover:shadow-teal-medla/40 transition-all flex items-center justify-center gap-3">
+                Crear cuenta <ArrowRight size={20} className="stroke-[3px]" />
               </a>
-              <a href="#precios" className="relative overflow-hidden border-2 border-navy-medla text-navy-medla px-8 py-4 rounded-xl font-bold text-lg hover:text-white hover:bg-navy-medla hover:scale-105 transition-all flex justify-center items-center">
-                Ver planes y precios
+              <a href="#precios" className="w-full sm:w-auto relative overflow-hidden border-2 border-navy-medla text-navy-medla px-6 sm:px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:text-white hover:bg-navy-medla hover:scale-105 transition-all flex justify-center items-center">
+                Ver precios
               </a>
             </div>
 
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[12px] text-slate-500 font-bold">
+            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-x-4 sm:gap-x-6 gap-y-2 text-[11px] sm:text-[12px] text-slate-500 font-bold">
               <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-teal-medla" /> Onboarding Inmediato</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-teal-medla" /> Listo en 5 minutos</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-teal-medla" /> Respaldo Legal MEDLA</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-teal-medla" /> Setup en 24h</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-teal-medla" /> RGPD garantizado</span>
             </div>
           </div>
         </motion.div>
@@ -631,10 +632,10 @@ const Pricing = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16 lg:mb-20 px-4"
         >
-          <h2 className="font-headline text-4xl font-extrabold tracking-tight mb-4">Planes diseñados para empresas españolas</h2>
-          <p className="text-slate-500">Transparencia total. Sin costes legales ocultos. Solo pura automatización.</p>
+          <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">Planes diseñados para tu seguridad</h2>
+          <p className="text-slate-500 text-sm sm:text-base max-w-2xl mx-auto">Transparencia total. Sin costes legales ocultos. Solo automatización sólida y blindada.</p>
         </motion.div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {plans.map((p, i) => (
@@ -671,14 +672,14 @@ const Pricing = () => {
                 <p className={`text-[10px] font-black uppercase tracking-widest mb-2 ${p.featured ? 'text-primary-container' : 'text-slate-400'}`}>Complemento MEDLA</p>
                 <p className={`text-xs font-bold ${p.dark ? 'text-slate-300' : 'text-slate-700'}`}>{p.medla}</p>
               </div>
-              <a href="#registro" className={`flex justify-center items-center gap-2 w-full py-3.5 rounded-xl font-black text-sm transition-all hover:scale-[1.03] active:scale-95 ${p.featured ? 'bg-gradient-to-r from-primary-container to-teal-medla text-white shadow-xl shadow-primary-container/30' : p.dark ? 'bg-white text-secondary' : 'border-2 border-primary-container text-primary-container hover:bg-primary-container/5'}`}>
+              <a href="#registro" className={`flex justify-center items-center gap-2 w-full py-3.5 sm:py-4 mt-2 rounded-xl font-black text-sm transition-all hover:scale-[1.03] active:scale-95 ${p.featured ? 'bg-gradient-to-r from-primary-container to-teal-medla text-white shadow-xl shadow-primary-container/30' : p.dark ? 'bg-white text-navy-medla shadow-lg' : 'border-2 border-primary-container text-primary-container hover:bg-primary-container/5'}`}>
                 {p.button} <ArrowRight size={16} className="stroke-[3px]" />
               </a>
 
-              <div className="mt-6 flex items-center justify-center gap-2 opacity-30 grayscale scale-75">
-                <span className="text-[8px] font-black uppercase tracking-tighter">JotForm</span>
-                <div className={`w-px h-3 ${p.dark ? 'bg-white' : 'bg-slate-900'}`}></div>
-                <span className="text-[8px] font-black uppercase tracking-tighter">MEDLA</span>
+              <div className="mt-8 flex items-center justify-center gap-3 opacity-50 grayscale hover:grayscale-0 transition-all">
+                <span className={`text-[10px] font-black uppercase tracking-tighter ${p.dark ? 'text-white' : 'text-navy-medla'}`}>JotForm</span>
+                <div className={`w-1.5 h-1.5 rounded-full ${p.dark ? 'bg-white/50' : 'bg-slate-300'}`}></div>
+                <span className={`text-[10px] font-black uppercase tracking-tighter ${p.dark ? 'text-white' : 'text-primary-container'}`}>MEDLA</span>
               </div>
             </motion.div>
           ))}
