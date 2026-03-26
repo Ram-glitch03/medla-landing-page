@@ -972,9 +972,100 @@ const Footer = () => {
   );
 };
 
+const CheckoutModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'auto';
+    return () => { document.body.style.overflow = 'auto'; };
+  }, [isOpen]);
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-medla/95 backdrop-blur-md p-6"
+        >
+          <motion.div
+            initial={{ scale: 0.9, y: 50, opacity: 0 }}
+            animate={{ scale: 1, y: 0, opacity: 1 }}
+            exit={{ scale: 0.9, y: 50, opacity: 0 }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="bg-white rounded-[2rem] w-full max-w-4xl overflow-hidden shadow-2xl relative grid md:grid-cols-2"
+          >
+            <button onClick={onClose} className="absolute top-6 right-6 text-slate-400 hover:text-navy-medla z-20 bg-white/50 backdrop-blur-sm rounded-full p-2"><X size={24} /></button>
+            <div className="bg-gradient-to-br from-primary-container to-teal-medla p-12 text-white flex flex-col justify-between relative overflow-hidden hidden md:flex">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20" />
+              <div className="relative z-10">
+                <ShieldCheck size={48} className="mb-6 opacity-80" />
+                <h3 className="font-headline text-4xl font-extrabold leading-tight mb-4">Empieza tu onboarding legalmente perfecto.</h3>
+                <p className="opacity-80 leading-relaxed font-medium">Automatización de captación adaptada minuciosamente a la ley española.</p>
+              </div>
+              <div className="relative z-10 grid gap-4 mt-12">
+                {['Auditoría RGPD activa', 'Documentos legales de Medla', 'Formularios protegidos'].map(i => (
+                  <div key={i} className="flex gap-3 items-center"><CheckCircle2 size={18} className="text-white" /> <span className="font-bold">{i}</span></div>
+                ))}
+              </div>
+            </div>
+            <div className="p-12 md:pl-10 h-full flex flex-col">
+              <h3 className="font-headline text-3xl font-extrabold text-navy-medla mb-2 block md:hidden">Crear Cuenta</h3>
+              <h3 className="font-headline text-3xl font-extrabold text-navy-medla mb-2 hidden md:block">Registro del Titular</h3>
+              <p className="text-slate-500 mb-8 font-medium text-sm">Finaliza la creación de tu entorno e introduce los datos de tu empresa.</p>
+              <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); alert("¡Registro iniciado correctamente en tu entorno!"); onClose(); }}>
+                <div className="space-y-1.5">
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Email de Empresa</label>
+                  <input className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 focus:ring-2 focus:ring-primary-container/20 focus:border-primary-container transition-all outline-none font-medium text-sm" placeholder="hola@tuempresa.es" autoFocus required type="email" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Nombre Completo</label>
+                  <input className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 focus:ring-2 focus:ring-primary-container/20 focus:border-primary-container transition-all outline-none font-medium text-sm" placeholder="Tu nombre" required type="text" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Paquete Elegido</label>
+                  <select className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 focus:ring-2 focus:ring-primary-container/20 focus:border-primary-container transition-all outline-none font-medium text-sm text-navy-medla">
+                    <option>Plan Starter — Gratis</option>
+                    <option>Plan Bronze — 34€/mes</option>
+                    <option>Plan Silver — 39€/mes</option>
+                    <option>Plan Enterprise — A Consultar</option>
+                  </select>
+                </div>
+                <button className="w-full mt-4 flex items-center justify-center gap-3 bg-navy-medla text-white py-4.5 rounded-xl font-black text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-navy-medla/20">
+                  Activar Suscripción <ArrowRight size={20} className="stroke-[3px]" />
+                </button>
+                <p className="text-[10px] text-slate-400 text-center px-4 leading-relaxed mt-4">
+                  Al registrarte, declaras estar de acuerdo con las condiciones del servicio y certificar la intervención legal pertinente.
+                </p>
+              </form>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
 export default function App() {
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpen = (e: Event) => {
+      e.preventDefault();
+      setIsCheckoutOpen(true);
+    };
+
+    const links = document.querySelectorAll('a[href="#registro"]');
+    links.forEach(link => link.addEventListener('click', handleOpen));
+
+    return () => {
+      links.forEach(link => link.removeEventListener('click', handleOpen));
+    }
+  });
+
   return (
     <div className="min-h-screen">
+      <CheckoutModal isOpen={isCheckoutOpen} onClose={() => setIsCheckoutOpen(false)} />
       <Hero />
       <TrustBar />
       <MedlaSpotlight />
