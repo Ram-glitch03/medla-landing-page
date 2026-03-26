@@ -121,7 +121,7 @@ const Hero = () => {
           <div className="flex items-center gap-5 mb-8">
             <img src="/medla-logo.png" alt="Medla Asesores" className="h-16 w-auto object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
             <span className="text-slate-300 font-black text-xl">×</span>
-            <img src="https://www.jotform.com/resources/assets/icon/jotform-icon-transparent-500x500.png" alt="JotForm" className="h-14 w-auto object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+            <img src="/jotform-logo.png" alt="JotForm" className="h-14 w-auto object-contain drop-shadow-sm" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
           </div>
           <span className="inline-block py-1.5 px-4 bg-primary-container/10 text-primary-container text-[11px] font-black tracking-[0.2em] uppercase rounded-full mb-6 border border-primary-container/20">
             Escudo Legal Integrado 🛡️
@@ -781,8 +781,34 @@ const ComplianceSection = () => {
 };
 
 const Testimonials = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const t = [
+    {
+      quote: "Como Responsable de IT en Madrid, la integración entre la facilidad de uso de JotForm y la experiencia legal de MEDLA nos permitió lanzar nuestro portal de captación en 48 horas en lugar de 3 semanas.",
+      author: "Javier Moreno",
+      role: "Responsable de IT, Nexo Soluciones"
+    },
+    {
+      quote: "MEDLA resolvió nuestra ansiedad por el cumplimiento normativo. Ahora podemos enfocarnos en hacer crecer nuestro negocio mientras recopilamos miles de leads diarios completamente protegidos.",
+      author: "Elena García",
+      role: "CEO, E-Gabinete Jurídico"
+    },
+    {
+      quote: "La mejor decisión que tomamos. Un flujo completamente limpio de ventas adaptado a todas las regulaciones de la AEPD sin escribir una sola línea de código.",
+      author: "Carlos Ruiz",
+      role: "Fundador, StartUp Europa"
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % t.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="py-24 bg-[#F5F5F5] px-6 relative">
+    <section className="py-24 bg-[#F5F5F5] px-6 relative overflow-hidden">
       {/* Wave Divider Top */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] rotate-180 text-navy-medla">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[60px]">
@@ -790,49 +816,51 @@ const Testimonials = () => {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-headline text-4xl font-extrabold tracking-tight text-center mb-20"
+          className="font-headline text-4xl font-extrabold tracking-tight text-center mb-16"
         >
           Voces de la Innovación
         </motion.h2>
-        <div className="grid md:grid-cols-2 gap-12">
-          {[
-            {
-              quote: "Como Responsable de IT en Madrid, la integración entre la facilidad de uso de JotForm y la experiencia legal de MEDLA nos permitió lanzar nuestro portal de captación de clientes en 48 horas en lugar de 3 semanas de revisiones legales.",
-              author: "Javier Moreno",
-              role: "Responsable de IT, Nexo Soluciones"
-            },
-            {
-              quote: "MEDLA resolvió nuestra ansiedad por el cumplimiento. Ahora podemos enfocarnos en hacer crecer nuestro negocio mientras JotForm se encarga del trabajo pesado de la captura de datos. Una verdadera alianza estratégica para el emprendedor moderno.",
-              author: "Elena García",
-              role: "CEO, E-Gabinete Jurídico"
-            }
-          ].map((t, i) => (
+
+        <div className="relative min-h-[300px]">
+          <AnimatePresence mode="wait">
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.2 }}
-              whileHover={{ y: -4 }}
-              className="bg-white p-12 rounded-3xl border border-slate-100 shadow-sm relative hover:shadow-xl transition-all duration-300"
+              key={currentIndex}
+              initial={{ opacity: 0, x: 50, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: -50, scale: 0.95 }}
+              transition={{ duration: 0.5, ease: "anticipate" }}
+              className="bg-white p-12 md:p-16 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/50 relative text-center mx-auto absolute inset-0"
             >
-              <p className="text-slate-500 text-lg italic mb-10 leading-relaxed">"{t.quote}"</p>
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-slate-100 flex items-center justify-center text-slate-300">
+              <div className="text-primary-container mb-6 flex justify-center opacity-20">
+                <ShieldCheck size={60} />
+              </div>
+              <p className="text-slate-600 text-xl md:text-2xl font-medium italic mb-12 leading-relaxed">"{t[currentIndex].quote}"</p>
+              <div className="flex flex-col items-center gap-3">
+                <div className="w-14 h-14 rounded-full bg-slate-50 flex items-center justify-center text-slate-400">
                   <Users size={24} />
                 </div>
                 <div>
-                  <p className="font-bold text-on-surface">{t.author}</p>
-                  <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest">{t.role}</p>
+                  <p className="font-extrabold text-navy-medla text-lg">{t[currentIndex].author}</p>
+                  <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest">{t[currentIndex].role}</p>
                 </div>
               </div>
             </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="flex justify-center gap-3 mt-8">
+          {t.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentIndex(i)}
+              className={`h-2.5 rounded-full transition-all duration-300 ${currentIndex === i ? 'w-8 bg-primary-container' : 'w-2.5 bg-slate-300 hover:bg-slate-400'}`}
+            />
           ))}
         </div>
       </div>
